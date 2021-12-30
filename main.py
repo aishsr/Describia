@@ -1,4 +1,5 @@
 import gradio as gr
+import imageToDescriptionModel as imd
 
 
 # Callback function to use the model
@@ -10,7 +11,7 @@ def image_to_text(image):
 # Define UI interface
 iFace = gr.Interface(
     title='Describia',
-    theme ='grass',
+    theme ='default',
     fn=image_to_text,
     inputs=gr.inputs.Image(label='Your image'),
     outputs=gr.outputs.Textbox(label="What I think ..."),
@@ -19,4 +20,6 @@ iFace = gr.Interface(
 )
 
 # Launch interface
-iFace.launch()
+iFace.launch(
+    share=True
+)
